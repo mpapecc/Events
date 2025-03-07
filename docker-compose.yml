@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api
+      - client
+    
+  api:
+    build:
+      context: .
+      dockerfile: Events.Api/Dockerfile
+    container_name: api
+
+  client:
+    build: ./Events.Web
+    container_name: client
