@@ -1,0 +1,65 @@
+version: "3.8"
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api
+      - client
+
+  api:
+    build:
+      context: .
+      dockerfile: Events.Api/Dockerfile
+    container_name: api
+    develop:
+      watch:
+        - action: sync
+          path: ./Events.Api
+          target: /usr/src/api/Events.Api
+        - action: sync
+          path: ./Events.Application
+          target: /usr/src/api/Events.Application
+
+  client:
+    build: ./Events.Web
+    container_name: client
+    develop:
+      watch:
+        - action: sync
+          path: ./Events.Web
+          target: /usr/src/client
+    
+  db:
+    image: postgres
+    restart: always
+    container_name: db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    volumes:
+      - pgadmindata:/var/lib/pgadmin
+
+volumes:
+  pgdata:
+  pgadmindata:

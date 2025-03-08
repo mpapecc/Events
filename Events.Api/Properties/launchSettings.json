@@ -37,15 +37,14 @@
                 "ASPNETCORE_ENVIRONMENT": "Development"
             }
         },
-        "DockerDevelopment": {
-            "commandName": "Project",
-            "launchBrowser": true,
-            "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
-            "environmentVariables": {
-                "ASPNETCORE_HTTP_PORTS": "8080",
-                //"ASPNETCORE_HTTPS_PORTS": "8081"
-            },
-            "publishAllPorts": true
+        "docker": {
+          "commandName": "Project",
+          "dotnetRunMessages": true,
+          "launchBrowser": false,
+          "applicationUrl": "http://0.0.0.0:8080",
+          "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+          }
         }
-  }
+    }
 }
