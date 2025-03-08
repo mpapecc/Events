@@ -17,10 +17,23 @@ services:
       context: .
       dockerfile: Events.Api/Dockerfile
     container_name: api
+    develop:
+      watch:
+        - action: sync
+          path: ./Events.Api
+          target: /usr/src/api/Events.Api
+        - action: sync
+          path: ./Events.Application
+          target: /usr/src/api/Events.Application
 
   client:
     build: ./Events.Web
     container_name: client
+    develop:
+      watch:
+        - action: sync
+          path: ./Events.Web
+          target: /usr/src/client
     
   db:
     image: postgres
