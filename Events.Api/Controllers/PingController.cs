@@ -2,9 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Events.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PingController : ControllerBase
+    public class PingController : BaseApiController
     {
         [HttpGet]
         public ActionResult Ping()
