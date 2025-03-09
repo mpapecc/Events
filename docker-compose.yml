@@ -17,6 +17,8 @@ services:
       context: .
       dockerfile: Events.Api/Dockerfile
     container_name: api
+    environment:
+      - DOTNET_WATCH_RESTART_ON_RUDE_EDIT=true
     develop:
       watch:
         - action: sync
