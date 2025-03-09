@@ -17,6 +17,8 @@ services:
       context: .
       dockerfile: Events.Api/Dockerfile
     container_name: api
+    environment:
+      - DOTNET_WATCH_RESTART_ON_RUDE_EDIT=true
     develop:
       watch:
         - action: sync
@@ -25,6 +27,9 @@ services:
         - action: sync
           path: ./Events.Application
           target: /usr/src/api/Events.Application
+        - action: sync
+          path: ./Tests.Application
+          target: /usr/src/api/Tests.Application
 
   client:
     build: ./Events.Web
