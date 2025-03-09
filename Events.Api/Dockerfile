@@ -11,4 +11,4 @@ COPY Events.Application/. ./Events.Application/
 RUN dotnet restore
 
 WORKDIR /usr/src/api/Events.Api
-CMD ["dotnet", "watch", "--launch-profile", "docker"]
+CMD ["dotnet", "watch", "--launch-profile", "docker", "--configuration", "Debug"]
