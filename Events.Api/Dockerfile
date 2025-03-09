@@ -6,7 +6,6 @@ COPY Events.sln .
 COPY Events.Api/Events.Api.csproj ./Events.Api/
 COPY Events.Api/. ./Events.Api/
 
-COPY Events.Api/. ./Events.Api/
 COPY Events.Application/Events.Application.csproj ./Events.Application/
 COPY Events.Application/. ./Events.Application/
 
@@ -22,9 +21,9 @@ COPY Events.Persistance/. ./Events.Persistance/
 COPY Events.Infrastructure/Events.Infrastructure.csproj ./Events.Infrastructure/
 COPY Events.Infrastructure/. ./Events.Infrastructure/
 
-COPY Events.Application/. ./Events.Application/
 COPY Events.Tests/Events.Tests.csproj ./Events.Tests/
 COPY Events.Tests/. ./Events.Tests/
+
 COPY Events.Web/Events.Web.esproj ./Events.Web/
 
 RUN dotnet restore
