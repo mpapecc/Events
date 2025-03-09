@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EventService } from './services/event.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Events.Web';
+  
+  constructor(public eventsService: EventService){
+    this.eventsService.getEvents().subscribe(r => console.log(r))
+  }
 }
