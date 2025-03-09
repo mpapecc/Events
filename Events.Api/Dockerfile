@@ -3,11 +3,12 @@ WORKDIR /usr/src/api
 
 COPY Events.sln .
 COPY Events.Api/Events.Api.csproj ./Events.Api/
-COPY Events.Application/Events.Application.csproj ./Events.Application/
-COPY Events.Web/Events.Web.esproj ./Events.Web/
-COPY Events.Tests/Events.Tests.csproj ./Events.Tests/
 COPY Events.Api/. ./Events.Api/
+COPY Events.Application/Events.Application.csproj ./Events.Application/
 COPY Events.Application/. ./Events.Application/
+COPY Events.Tests/Events.Tests.csproj ./Events.Tests/
+COPY Events.Tests/. ./Events.Tests/
+COPY Events.Web/Events.Web.esproj ./Events.Web/
 RUN dotnet restore
 
 WORKDIR /usr/src/api/Events.Api
