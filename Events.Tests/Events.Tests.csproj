@@ -20,4 +20,9 @@
         <Using Include="Xunit"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Events.Api\Events.Api.csproj" />
+      <ProjectReference Include="..\Events.Application\Events.Application.csproj" />
+    </ItemGroup>
+
 </Project>
