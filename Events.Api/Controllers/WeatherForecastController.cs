@@ -1,4 +1,3 @@
-using Events.Application;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Events.Api.Controllers
@@ -26,7 +25,7 @@ namespace Events.Api.Controllers
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Class1.Summaries[Random.Shared.Next(Class1.Summaries.Length)]
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
         }
