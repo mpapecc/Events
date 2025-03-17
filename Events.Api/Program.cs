@@ -1,7 +1,9 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Events.Api;
 using Events.Application;
 using Events.Persistance;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +20,7 @@ builder.Services.AddDbContext<EventsDbContext>(options =>
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(c =>
     {
-        c.RegisterModule(new PersistanceIocModule(builder.Configuration));
+        c.RegisterModule(new PersistanceIocModule());
         c.RegisterModule(new ApplicationIocModule());
     });
 
