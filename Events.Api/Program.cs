@@ -7,6 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.RegisterSettings(builder.Configuration);
+builder.Services.RegisterIdentity();
+builder.Services.RegisterAuthentication();
+builder.Services.RegisterAuthorization();
+
+builder.Services.AddDbContext<EventsDbContext>(options =>
+            options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(c =>
     {

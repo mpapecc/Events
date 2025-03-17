@@ -1,7 +1,7 @@
 ﻿using Events.Application.Repositories;
 using Events.Domain.Entities.BaseEntites;
 
-namespace Events.Persistance
+namespace Events.Persistance.Repositories
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
@@ -14,12 +14,12 @@ namespace Events.Persistance
 
         public virtual T? GetById(int id)
         {
-            return this.context.Set<T>().Find(id);
+            return context.Set<T>().Find(id);
         }
 
         public virtual IQueryable<T> Query()
         {
-            return this.context.Set<T>();
+            return context.Set<T>();
         }
     }
 }
