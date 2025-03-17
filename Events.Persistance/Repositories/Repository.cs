@@ -14,12 +14,12 @@ namespace Events.Persistance.Repositories
 
         public virtual T? GetById(int id)
         {
-            return context.Set<T>().Find(id);
+            return this.context.Set<T>().Find(id);
         }
 
         public virtual IQueryable<T> Query()
         {
-            return context.Set<T>();
+            return this.context.Set<T>();
         }
     }
 }
