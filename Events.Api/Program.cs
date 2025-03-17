@@ -3,7 +3,6 @@ using Autofac.Extensions.DependencyInjection;
 using Events.Api;
 using Events.Application;
 using Events.Persistance;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,13 +13,10 @@ builder.Services.RegisterIdentity();
 builder.Services.RegisterAuthentication();
 builder.Services.RegisterAuthorization();
 
-builder.Services.AddDbContext<EventsDbContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
-
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(c =>
     {
-        c.RegisterModule(new PersistanceIocModule());
+        c.RegisterModule(new PersistanceIocModule(builder.Configuration));
         c.RegisterModule(new ApplicationIocModule());
     });
 
