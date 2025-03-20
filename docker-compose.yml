@@ -40,8 +40,11 @@ services:
           path: ./Events.Infrastructure
           target: /usr/src/api/Events.Infrastructure
         - action: sync
-          path: ./Tests.Application
-          target: /usr/src/api/Tests.Application
+          path: ./Events.UnitTests
+          target: /usr/src/api/Events.UnitTests
+        - action: sync
+          path: ./Events.IntegrationTests
+          target: /usr/src/api/Events.IntegrationTests
 
   client:
     build: ./Events.Web

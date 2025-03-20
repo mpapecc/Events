@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>68f5af7e-df1a-451f-9ad0-5ef08798e4ec</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Events.Application\Events.Application.csproj" />
     <ProjectReference Include="..\Events.Persistance\Events.Persistance.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <InternalsVisibleTo Include="Events.IntegrationTests" />
   </ItemGroup>
 
 </Project>
