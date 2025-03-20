@@ -17,7 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.Persistance", "Event
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.Infrastructure", "Events.Infrastructure\Events.Infrastructure.csproj", "{B9314DF5-4448-47A9-80C0-62473C0364BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.Tests", "Events.Tests\Events.Tests.csproj", "{7EE9458A-6DD7-4CE7-A4C7-68607A7832C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.UnitTests", "Events.UnitTests\Events.UnitTests.csproj", "{7EE9458A-6DD7-4CE7-A4C7-68607A7832C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.IntegrationTests", "Events.IntegrationTests\Events.IntegrationTests.csproj", "{DE1A18E0-4D3F-45C5-852D-3E1E47615926}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Events.Tests", "Events.Tests", "{D105079B-4993-4CA2-BC6A-1D1EAED50C9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,8 +63,16 @@ Global
 		{7EE9458A-6DD7-4CE7-A4C7-68607A7832C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EE9458A-6DD7-4CE7-A4C7-68607A7832C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EE9458A-6DD7-4CE7-A4C7-68607A7832C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE1A18E0-4D3F-45C5-852D-3E1E47615926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE1A18E0-4D3F-45C5-852D-3E1E47615926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE1A18E0-4D3F-45C5-852D-3E1E47615926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE1A18E0-4D3F-45C5-852D-3E1E47615926}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7EE9458A-6DD7-4CE7-A4C7-68607A7832C8} = {D105079B-4993-4CA2-BC6A-1D1EAED50C9E}
+		{DE1A18E0-4D3F-45C5-852D-3E1E47615926} = {D105079B-4993-4CA2-BC6A-1D1EAED50C9E}
 	EndGlobalSection
 EndGlobal

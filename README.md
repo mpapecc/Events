@@ -37,6 +37,6 @@ A small app for managing events.
   - Now you can add breakpoints as usual
 
 ### Managing Database
-Adding migrations and updating database have to be made from inside container from location usr/src/api. 
-- Add migration : `dotnet ef migrations add -s Events.Api -p Events.Persistance`
-- Update database : `dotnet ef database update -s Events.Api -p Events.Persistance`
+Adding migrations and updating database have to be made from inside container.
+- Add migration : `docker compose exec api dotnet ef migrations add -p ../Events.Persistance`
+- Update database : `docker compose exec api dotnet ef database update -p ../Events.Persistance`
