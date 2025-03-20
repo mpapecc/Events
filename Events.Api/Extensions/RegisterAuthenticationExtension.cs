@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 
-namespace Events.Api
+namespace Events.Api.Extensions
 {
     public static class RegisterAuthenticationExtension
     {

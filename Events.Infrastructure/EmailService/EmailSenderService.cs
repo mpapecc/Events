@@ -9,9 +9,9 @@ namespace Events.Infrastructure.EmailService
 {
     public class EmailSender : IEmailSender
     {
-        private readonly SmtpSection smtpSection;
+        private readonly SmtpOptions smtpSection;
 
-        public EmailSender(IOptions<SmtpSection> smtpSection)
+        public EmailSender(IOptions<SmtpOptions> smtpSection)
         {
             this.smtpSection = smtpSection.Value;
         }

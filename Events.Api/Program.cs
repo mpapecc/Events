@@ -1,6 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Events.Api;
+using Events.Api.Extensions;
 using Events.Application;
 using Events.Persistance;
 

@@ -1,6 +1,6 @@
 ﻿namespace Events.Application.Options
 {
-    public class SmtpSection
+    public class SmtpOptions
     {
         public string Smtp { get; set; }
         public int Port { get; set; }

@@ -2,7 +2,7 @@
 using Events.Persistance;
 using Microsoft.AspNetCore.Identity;
 
-namespace Events.Api
+namespace Events.Api.Extensions
 {
     public static class RegisterIdentityExtension
     {
