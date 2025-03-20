@@ -1,7 +1,7 @@
 ﻿using Events.Application.Repositories;
 using Events.Domain.Entities.BaseEntites;
 
-namespace Events.Persistance
+namespace Events.Persistance.Repositories
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {

@@ -1,5 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Events.Api.Extensions;
 using Events.Application;
 using Events.Persistance;
 
@@ -7,6 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.RegisterSettings(builder.Configuration);
+builder.Services.RegisterIdentity();
+builder.Services.RegisterAuthentication();
+builder.Services.RegisterAuthorization();
+
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(c =>
     {

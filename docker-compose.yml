@@ -12,6 +12,16 @@ services:
       - api
       - client
 
+  maildev:
+    image: maildev/maildev
+    container_name: maildev
+    ports:
+      - "1025:1025"
+      - "1080:1080"
+    environment:
+      MAILDEV_INCOMING_USER : "events.dev.user"
+      MAILDEV_INCOMING_PASS : "events.dev.pass"
+
   api:
     build:
       context: .
@@ -19,6 +29,8 @@ services:
     container_name: api
     environment:
       - DOTNET_WATCH_RESTART_ON_RUDE_EDIT=true
+    volumes:
+      - ./Events.Persistance/Migrations:/usr/src/api/Events.Persistance/Migrations
     develop:
       watch:
         - action: sync

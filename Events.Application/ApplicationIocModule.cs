@@ -7,7 +7,7 @@ namespace Events.Application
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterAssemblyTypes(typeof(ApplicationIocModule).Assembly)
-               .Where(t => t.Name.EndsWith("Service", StringComparison.OrdinalIgnoreCase))
+               .Where(t => t.IsClass && !t.IsGenericType && t.Name.EndsWith("Service", StringComparison.OrdinalIgnoreCase))
                .AsSelf();
         }
     }
